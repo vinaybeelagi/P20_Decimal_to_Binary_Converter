@@ -74,3 +74,21 @@ const showAnimation = () => {
   }, 20000);
 };
 
+// Function to check user input and handle conversion
+const checkUserInput = () => {
+  // Parse the input value to an integer
+  const inputInt = parseInt(numberInput.value);
+
+  // Check if the input is valid
+  if (!numberInput.value || isNaN(inputInt)) {
+    alert("Please provide a decimal number");
+    return;
+  }
+
+  // If the input is 5, trigger the animation
+  if (inputInt === 5) {
+    showAnimation();
+    return;
+  }
+
+  
