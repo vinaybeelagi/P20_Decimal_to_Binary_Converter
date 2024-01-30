@@ -41,3 +41,36 @@ const decimalToBinary = (input) => {
   }
 };
 
+// Function to show call stack animation
+const showAnimation = () => {
+  // Set initial text for the result element
+  result.innerText = "Call Stack Animation";
+
+  // Iterate through animation data and add elements with delays
+  animationData.forEach((obj) => {
+    setTimeout(() => {
+      // Add a paragraph element with the specified ID and styling to the animation container
+      animationContainer.innerHTML += `
+        <p id="${obj.inputVal}" style="margin-top: ${obj.marginTop}px;" class="animation-frame">
+          decimalToBinary(${obj.inputVal})
+        </p>
+      `;
+    }, obj.addElDelay);
+
+    setTimeout(() => {
+      // Set the text content of the added element to the specified message after a delay
+      document.getElementById(obj.inputVal).textContent = obj.msg;
+    }, obj.showMsgDelay);
+
+    setTimeout(() => {
+      // Remove the added element after a delay
+      document.getElementById(obj.inputVal).remove();
+    }, obj.removeElDelay);
+  });
+
+  // Set the result element text content after the animation is complete
+  setTimeout(() => {
+    result.textContent = decimalToBinary(5);
+  }, 20000);
+};
+
