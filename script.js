@@ -91,4 +91,16 @@ const checkUserInput = () => {
     return;
   }
 
-  
+  // Display the binary result for other input values
+  result.textContent = decimalToBinary(inputInt);
+  numberInput.value = "";
+};
+
+// Event listeners for button click and Enter key press
+convertBtn.addEventListener("click", checkUserInput);
+
+numberInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    checkUserInput();
+  }
+});
